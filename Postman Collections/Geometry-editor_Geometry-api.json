@@ -26,7 +26,7 @@
               }
             }
           ],
-          "_postman_id": "fcf7ad78-545c-459e-b6a5-680293163729",
+          "id": "fcf7ad78-545c-459e-b6a5-680293163729",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -41,7 +41,7 @@
           "response": []
         }
       ],
-      "_postman_id": "11de8f34-11e8-4d65-8f73-128b96b867ef"
+      "id": "11de8f34-11e8-4d65-8f73-128b96b867ef"
     },
     {
       "name": "Geometry-Editor",
@@ -63,7 +63,7 @@
               }
             }
           ],
-          "_postman_id": "8b3c6729-a0a1-430b-af1c-99519228c4b0",
+          "id": "8b3c6729-a0a1-430b-af1c-99519228c4b0",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -95,7 +95,7 @@
               }
             }
           ],
-          "_postman_id": "c32fc489-c593-4729-9255-003f225311f3",
+          "id": "c32fc489-c593-4729-9255-003f225311f3",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -107,14 +107,14 @@
           "response": []
         }
       ],
-      "_postman_id": "d31ceb91-14ba-4167-afb5-f6093f76bb14"
+      "id": "d31ceb91-14ba-4167-afb5-f6093f76bb14"
     }
   ],
   "event": [
     {
       "listen": "prerequest",
       "script": {
-        "id": "3bd41f93-6205-4105-bf95-41458b3b81b5",
+        "id": "f06b30a9-c410-4b32-844c-662a13f1825a",
         "type": "text/javascript",
         "exec": [
           ""
@@ -124,7 +124,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "70c8ed1c-eda8-4ca1-9e72-a9c323ce5163",
+        "id": "2695595b-176b-471c-b54f-56d209e1890d",
         "type": "text/javascript",
         "exec": [
           ""
@@ -134,22 +134,24 @@
   ],
   "variable": [
     {
-      "id": "df749f43-24e0-4d41-a23a-711daff5da66",
+      "id": "61c2a7e3-c2e8-4760-af24-8f9db7ac5a5b",
       "key": "URL_editor",
-      "value": "http://localhost:8080",
-      "type": "string"
+      "value": "http://localhost:8080"
     },
     {
-      "id": "c0dc11fe-615e-4596-9534-5c07abdcd427",
+      "id": "6b5eb68c-3bd7-4c7c-9ac1-17bf3594adee",
       "key": "region",
-      "value": "na",
-      "type": "string"
+      "value": "na"
     },
     {
-      "id": "988bcb0b-7235-4116-88ff-b37675ea9e24",
+      "id": "0225fba4-8e54-4520-abd6-0047137b5355",
       "key": "URL_api",
-      "value": "http://localhost:8000",
-      "type": "string"
+      "value": "http://localhost:8000"
+    },
+    {
+      "id": "da4d1312-f680-4649-8b6c-a9ca20130b66",
+      "key": "test var",
+      "value": ""
     }
   ]
 }
