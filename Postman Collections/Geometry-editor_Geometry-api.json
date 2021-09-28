@@ -1,0 +1,155 @@
+{
+  "info": {
+    "_postman_id": "c9a9e2fa-47e1-49f0-9680-541d327e238a",
+    "name": "Geometry-Editor / Geometry-API",
+    "description": "Testing collection for Geometry-editor and Geometry-api services (health checks)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Geometry-API",
+      "item": [
+        {
+          "name": "Server Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fd554bb5-f653-4841-8f48-de533cc6eb1d",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "fcf7ad78-545c-459e-b6a5-680293163729",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_api}}/health"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "11de8f34-11e8-4d65-8f73-128b96b867ef"
+    },
+    {
+      "name": "Geometry-Editor",
+      "item": [
+        {
+          "name": "Server Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3ef7bb55-974f-48da-a611-4e75cc010ed3",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8b3c6729-a0a1-430b-af1c-99519228c4b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/health"
+          },
+          "response": []
+        },
+        {
+          "name": "Environment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e4ac2933-8aa0-49e8-a2ea-6bd00726f218",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "c32fc489-c593-4729-9255-003f225311f3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/environment"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "d31ceb91-14ba-4167-afb5-f6093f76bb14"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "3bd41f93-6205-4105-bf95-41458b3b81b5",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "70c8ed1c-eda8-4ca1-9e72-a9c323ce5163",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "df749f43-24e0-4d41-a23a-711daff5da66",
+      "key": "URL_editor",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "id": "c0dc11fe-615e-4596-9534-5c07abdcd427",
+      "key": "region",
+      "value": "na",
+      "type": "string"
+    },
+    {
+      "id": "988bcb0b-7235-4116-88ff-b37675ea9e24",
+      "key": "URL_api",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}
