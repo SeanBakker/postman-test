@@ -165,22 +165,22 @@
   ],
   "variable": [
     {
-      "id": "c637ce55-2ab8-40d8-8404-1c6defefaca6",
+      "id": "1c59b11b-fddb-4e57-b303-d46625e83340",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "da6e0a59-5e4e-4e5f-a38c-5684836f45d4",
+      "id": "17a4b0df-f03c-47a1-990b-e954e15aeb47",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "a3d3f887-fa8b-4a61-b7fc-0ed62690911f",
+      "id": "a8977601-df87-427c-bf93-011cad2f1746",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "32638a7c-a175-4cd2-8f2d-673750a8db7b",
+      "id": "ef1513bb-cb49-436b-babd-e706676771ad",
       "key": "test var",
       "value": ""
     }
