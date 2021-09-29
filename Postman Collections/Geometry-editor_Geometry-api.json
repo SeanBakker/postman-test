@@ -41,7 +41,7 @@
           "response": []
         },
         {
-          "name": "Server Health Copy",
+          "name": "Server Organization",
           "event": [
             {
               "listen": "test",
@@ -165,22 +165,22 @@
   ],
   "variable": [
     {
-      "id": "1c59b11b-fddb-4e57-b303-d46625e83340",
+      "id": "b26793bb-53aa-49a0-8e62-ee1fc3ada7aa",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "17a4b0df-f03c-47a1-990b-e954e15aeb47",
+      "id": "619f1d24-1ec6-408c-bc2b-2383292b7d13",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "a8977601-df87-427c-bf93-011cad2f1746",
+      "id": "037b22d0-f8be-4ce0-970a-0be9e4a542cd",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "ef1513bb-cb49-436b-babd-e706676771ad",
+      "id": "45e9e320-a7bd-41eb-859e-afc16a809c07",
       "key": "test var",
       "value": ""
     }
