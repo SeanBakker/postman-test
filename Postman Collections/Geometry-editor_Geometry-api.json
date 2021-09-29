@@ -191,7 +191,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{URL_editor}}/static"
+            "url": "{{URL_editor}}/venue"
           },
           "response": []
         }
@@ -223,22 +223,22 @@
   ],
   "variable": [
     {
-      "id": "909802d2-c35d-4acb-b580-7ebb8c77554b",
+      "id": "2965416a-a11e-4d4c-846c-dbda9fd28ce0",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "0983178d-dc53-4bf8-967d-278727a90d0e",
+      "id": "caf33080-e6cd-4c3d-b92f-e23027e002f1",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "252eeab1-c8e6-4fcf-81cb-ed8703d634f5",
+      "id": "c04899cf-2e5c-4f24-86d5-a23fe9735b7a",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "608409ef-617c-4ccd-a544-0aac9cc884a0",
+      "id": "e53859aa-3ad2-4105-8200-2fa1bd3ddd52",
       "key": "test var",
       "value": ""
     }
