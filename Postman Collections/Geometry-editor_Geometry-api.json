@@ -114,7 +114,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "5828411f-aa12-476d-b1f9-b4ff6da64844",
+        "id": "bd50d742-f85f-46ea-9c31-e0c2ce818734",
         "type": "text/javascript",
         "exec": [
           ""
@@ -124,7 +124,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "0e0aef85-98c5-4263-9212-92528c3e0eee",
+        "id": "71ed9a0e-78ad-4316-adae-1cf291bfac14",
         "type": "text/javascript",
         "exec": [
           ""
@@ -134,22 +134,22 @@
   ],
   "variable": [
     {
-      "id": "a07b7130-2076-45ea-a29f-ea4fd282c713",
+      "id": "a945516b-d8f6-445e-bdee-e5dc305a85ad",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "eabf5853-fb01-4a85-ace1-3efa15750f84",
+      "id": "535f6308-312a-492c-9287-052fc76948fc",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "3d38b6be-3c01-47f1-b971-1a984e8200a4",
+      "id": "be7406a0-da34-41a9-8766-538d890f676a",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "fc7158cb-fabb-4d42-9c12-d8eea6651753",
+      "id": "a35ecfa9-d233-4d20-af5e-d669102e7c27",
       "key": "test var",
       "value": ""
     }
