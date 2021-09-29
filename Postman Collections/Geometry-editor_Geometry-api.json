@@ -267,11 +267,17 @@
       "id": "d31ceb91-14ba-4167-afb5-f6093f76bb14"
     }
   ],
+  "auth": {
+    "type": "bearer",
+    "bearer": {
+      "token": "{{token}}"
+    }
+  },
   "event": [
     {
       "listen": "prerequest",
       "script": {
-        "id": "ec66b96d-90ea-4637-85b2-664706c914be",
+        "id": "f7c86824-40a3-4d46-898e-a692d7ab80c4",
         "type": "text/javascript",
         "exec": [
           ""
@@ -281,7 +287,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "15cd757e-1454-4425-a409-d4879fc6d0fa",
+        "id": "c1a89e50-990a-4edb-b6e9-a47d6c8c826d",
         "type": "text/javascript",
         "exec": [
           ""
@@ -291,24 +297,24 @@
   ],
   "variable": [
     {
-      "id": "3d583ab1-763e-4339-a4f5-94cfc50e78dc",
+      "id": "d7832ada-86f4-4e41-afe5-cf12811feb72",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "cc0a685e-5261-4ad8-86ed-7ca535de7c60",
+      "id": "32e346a7-df5f-45ea-afb4-4f7b9ccea77f",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "ba23dcc9-b5a4-4d3f-9e5d-145854a1fcb0",
+      "id": "704bb6f2-6f01-42bb-b576-c6724f1aa9c7",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "3bc34ea4-e65b-4cc7-89c2-f51aa727a048",
-      "key": "test var",
-      "value": ""
+      "id": "f5208777-db92-4110-af87-b1744c7af1e9",
+      "key": "token",
+      "value": "(generated at runtime)"
     }
   ]
 }
