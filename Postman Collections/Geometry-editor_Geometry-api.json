@@ -67,7 +67,7 @@
             },
             "method": "GET",
             "header": [],
-            "url": "{{URL_api}}/health"
+            "url": "{{URL_api}}/organization"
           },
           "response": []
         }
@@ -165,22 +165,22 @@
   ],
   "variable": [
     {
-      "id": "4fefdd58-d2e8-43f6-840d-4518eb2b1830",
+      "id": "b3cb5ab8-7317-432a-9cee-98e39164000c",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "f4785770-c548-4094-a5bd-03ece3b469aa",
+      "id": "7c4210c3-d61e-4346-a5c4-73c489302447",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "bfc0c2a4-8eff-4c1d-83ec-37107bc73889",
+      "id": "b16d147c-f9a0-4b74-8802-5f1e9dfb0dea",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "303630c8-3186-46d4-addc-2f55bdec099a",
+      "id": "a6309894-ff21-40eb-82a5-7b37d03c68eb",
       "key": "test var",
       "value": ""
     }
