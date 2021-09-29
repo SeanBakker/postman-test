@@ -138,7 +138,7 @@
           "response": []
         },
         {
-          "name": "Environment Copy",
+          "name": "Static",
           "event": [
             {
               "listen": "test",
@@ -194,22 +194,22 @@
   ],
   "variable": [
     {
-      "id": "b7dea6da-300f-4c0d-8ba2-870b1d5d8ff7",
+      "id": "5b176442-fb2c-4db2-9c10-be05de282669",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "551422d9-47b0-4b59-b280-bfd4ef2e8895",
+      "id": "ae681f65-2f05-4dd2-b9e1-b51cac3fc1d1",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "b57f2164-b253-470d-9741-471e62c3ac0e",
+      "id": "1d5314d5-9ca6-4e92-ac0f-d3416367fff0",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "e93f2c50-ca79-4ade-a490-dedccdeef637",
+      "id": "1e49c652-9c8a-4e86-9df8-513f794f3209",
       "key": "test var",
       "value": ""
     }
