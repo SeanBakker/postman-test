@@ -223,22 +223,22 @@
   ],
   "variable": [
     {
-      "id": "b1b240cb-f8dc-403b-9405-68f529965cac",
+      "id": "eaaac02c-1638-4340-99bb-abd094067677",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "9a23eb33-e442-4d11-b425-57356785cb76",
+      "id": "6aaac1d1-b227-4a40-8f4b-8cd38e1b27cf",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "f0f038d8-3c9f-440a-8dab-c7df7f24bdb6",
+      "id": "6424dd9e-6b0f-4f3c-a7d0-cf0e0107ce65",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "9a549a5f-d1da-4f79-8c84-9e8d7f41866b",
+      "id": "b8160030-41bc-4a24-8649-371b594a94ed",
       "key": "test var",
       "value": ""
     }
