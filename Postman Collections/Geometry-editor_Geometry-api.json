@@ -41,37 +41,6 @@
           "response": []
         },
         {
-          "name": "Server Organization",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "ebcb8f07-b389-4f12-9537-f86671288441",
-                "exec": [
-                  "pm.test('Status', () => {\r",
-                  "    pm.response.to.be.success;\r",
-                  "    pm.response.to.be.withBody;\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "8bac9816-5a64-4179-8c7f-5cd0678b0fd7",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [],
-            "url": "{{URL_api}}/organization"
-          },
-          "response": []
-        },
-        {
           "name": "Basic Copy",
           "event": [
             {
@@ -136,6 +105,37 @@
               }
             },
             "url": "{{URL}}/1/token"
+          },
+          "response": []
+        },
+        {
+          "name": "Server Organization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ebcb8f07-b389-4f12-9537-f86671288441",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "8bac9816-5a64-4179-8c7f-5cd0678b0fd7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_api}}/organization"
           },
           "response": []
         }
@@ -291,22 +291,22 @@
   ],
   "variable": [
     {
-      "id": "65e3c966-66de-40ed-ad41-5a528b940cf6",
+      "id": "e27eb385-9ad3-4ed3-80e7-ca2826c41b0d",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "8e6167dd-79fd-4553-a18a-258706487a6f",
+      "id": "82867245-1dae-4771-afc3-0a1886097845",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "e84bf129-b078-4753-a99e-45a2197bb3f1",
+      "id": "5075576d-9456-4dbf-b50e-4aa4e89d35d2",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "f707c55f-4f03-4313-8db6-63f073222ffd",
+      "id": "63e26eae-5706-4b3f-8160-970537dc9f98",
       "key": "test var",
       "value": ""
     }
