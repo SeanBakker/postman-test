@@ -194,22 +194,22 @@
   ],
   "variable": [
     {
-      "id": "4fa64a48-3e6a-48f8-9199-8e2959ba2bae",
+      "id": "b7dea6da-300f-4c0d-8ba2-870b1d5d8ff7",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "80e4105f-b7f5-4a6e-b592-7d1a6f554e50",
+      "id": "551422d9-47b0-4b59-b280-bfd4ef2e8895",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "c1510c92-bec7-4f95-a484-1b2776842230",
+      "id": "b57f2164-b253-470d-9741-471e62c3ac0e",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "8fc0a1d6-ede3-4bd3-8dba-ee1f68e422ea",
+      "id": "e93f2c50-ca79-4ade-a490-dedccdeef637",
       "key": "test var",
       "value": ""
     }
