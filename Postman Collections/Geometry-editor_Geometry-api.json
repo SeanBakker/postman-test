@@ -167,7 +167,7 @@
           "response": []
         },
         {
-          "name": "Static Copy",
+          "name": "Venue",
           "event": [
             {
               "listen": "test",
@@ -223,22 +223,22 @@
   ],
   "variable": [
     {
-      "id": "eaaac02c-1638-4340-99bb-abd094067677",
+      "id": "909802d2-c35d-4acb-b580-7ebb8c77554b",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "6aaac1d1-b227-4a40-8f4b-8cd38e1b27cf",
+      "id": "0983178d-dc53-4bf8-967d-278727a90d0e",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "6424dd9e-6b0f-4f3c-a7d0-cf0e0107ce65",
+      "id": "252eeab1-c8e6-4fcf-81cb-ed8703d634f5",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "b8160030-41bc-4a24-8649-371b594a94ed",
+      "id": "608409ef-617c-4ccd-a544-0aac9cc884a0",
       "key": "test var",
       "value": ""
     }
