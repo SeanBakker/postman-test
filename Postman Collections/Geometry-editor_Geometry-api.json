@@ -297,34 +297,39 @@
   ],
   "variable": [
     {
-      "id": "51d66c34-6d53-44ab-8122-2a974e400ed4",
+      "id": "97e80be3-d6a6-4928-ade0-3b267ae6851d",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "9a8ec4a6-ce13-4bab-9ce5-f1088919741b",
+      "id": "edf449b1-0eb5-47e4-a49a-61f404cdcf76",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "09ef37b6-6b5d-45c4-a28e-bcad5da824e0",
+      "id": "59290edb-2062-43cc-acff-1677e67b61cf",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "7d8f4b99-4280-4d8b-b97c-322609f92f99",
+      "id": "8ebf5c1e-3bb4-4a58-89e4-f4c2926c4a63",
       "key": "token",
       "value": "(generated at runtime)"
     },
     {
-      "id": "5711730d-4840-42da-bea5-da4d0b88c22a",
+      "id": "385469a2-7eb5-4c09-b0bd-e0c91dd88a4e",
       "key": "client_id",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "a12167a5-e480-4821-9387-a7bbea5b9cd2",
+      "id": "904bf89d-76ab-46c6-92f3-1ad52da1e711",
       "key": "client_secret",
       "value": "(write in 'current' value)"
+    },
+    {
+      "id": "313ad86b-242b-44b7-a047-8a711a9f9e1f",
+      "key": "token_url",
+      "value": ""
     }
   ]
 }
