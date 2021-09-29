@@ -104,7 +104,7 @@
                 }
               }
             },
-            "url": "{{URL}}/1/token"
+            "url": "{{URL_api}}/1/token"
           },
           "response": []
         },
@@ -291,22 +291,22 @@
   ],
   "variable": [
     {
-      "id": "e55c1c9c-67df-453a-8d0f-8a98eacc1781",
+      "id": "3d583ab1-763e-4339-a4f5-94cfc50e78dc",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "fa6b339b-c17e-40ed-b9c6-f269bb0ad7df",
+      "id": "cc0a685e-5261-4ad8-86ed-7ca535de7c60",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "98c21942-1505-4c4b-af38-87880b3dc71e",
+      "id": "ba23dcc9-b5a4-4d3f-9e5d-145854a1fcb0",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "da748f36-0808-4490-a928-c581dbaf7f3e",
+      "id": "3bc34ea4-e65b-4cc7-89c2-f51aa727a048",
       "key": "test var",
       "value": ""
     }
