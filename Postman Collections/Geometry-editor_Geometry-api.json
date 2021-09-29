@@ -41,7 +41,7 @@
           "response": []
         },
         {
-          "name": "Basic Copy",
+          "name": "Token Creation",
           "event": [
             {
               "listen": "test",
@@ -291,22 +291,22 @@
   ],
   "variable": [
     {
-      "id": "e27eb385-9ad3-4ed3-80e7-ca2826c41b0d",
+      "id": "e55c1c9c-67df-453a-8d0f-8a98eacc1781",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "82867245-1dae-4771-afc3-0a1886097845",
+      "id": "fa6b339b-c17e-40ed-b9c6-f269bb0ad7df",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "5075576d-9456-4dbf-b50e-4aa4e89d35d2",
+      "id": "98c21942-1505-4c4b-af38-87880b3dc71e",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "63e26eae-5706-4b3f-8160-970537dc9f98",
+      "id": "da748f36-0808-4490-a928-c581dbaf7f3e",
       "key": "test var",
       "value": ""
     }
