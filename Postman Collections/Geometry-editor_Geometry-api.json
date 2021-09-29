@@ -39,6 +39,37 @@
             "url": "{{URL_api}}/health"
           },
           "response": []
+        },
+        {
+          "name": "Server Health Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ebcb8f07-b389-4f12-9537-f86671288441",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "8bac9816-5a64-4179-8c7f-5cd0678b0fd7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_api}}/health"
+          },
+          "response": []
         }
       ],
       "id": "11de8f34-11e8-4d65-8f73-128b96b867ef"
@@ -134,22 +165,22 @@
   ],
   "variable": [
     {
-      "id": "a17b942b-c866-4b66-886d-ac6dab1b8b29",
+      "id": "c637ce55-2ab8-40d8-8404-1c6defefaca6",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "6431662c-2bbd-414c-bcb1-ba55ad73112d",
+      "id": "da6e0a59-5e4e-4e5f-a38c-5684836f45d4",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "a5ac787c-2e16-4b8c-8699-6c7ee1404e16",
+      "id": "a3d3f887-fa8b-4a61-b7fc-0ed62690911f",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "dc46f8cf-7bea-44bf-a567-82db9c94a0c9",
+      "id": "32638a7c-a175-4cd2-8f2d-673750a8db7b",
       "key": "test var",
       "value": ""
     }
