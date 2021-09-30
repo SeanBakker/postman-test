@@ -177,7 +177,7 @@
           "response": []
         },
         {
-          "name": "Server Health Copy",
+          "name": "Server Health 2",
           "event": [
             {
               "listen": "test",
@@ -328,37 +328,37 @@
   ],
   "variable": [
     {
-      "id": "7a6ba86e-911c-447a-a2d6-b9a2150c7c06",
+      "id": "57adc057-0fca-42d7-8338-4b63ac55fdce",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "5b245f8c-a755-4fa4-a2fb-6308c2072e1f",
+      "id": "d5f2d3fd-08e3-4721-839d-ffd58641880e",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "1aa33d90-0427-46a4-9190-8ea0391be061",
+      "id": "a481f706-145b-4218-8239-9f3c6a4e9e6e",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "09af3128-6a16-422a-8459-72867b81c22a",
+      "id": "a527e25d-4aae-48db-b864-f65f8916ad40",
       "key": "token",
       "value": "(generated at runtime)"
     },
     {
-      "id": "bb6b1dfa-e75f-4dbf-9b0a-1348ff92ebab",
+      "id": "70b1c05f-7ce5-48b7-80b3-76efe04a042c",
       "key": "client_id",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "4dcfc5bf-c777-4e33-aae7-002402870a87",
+      "id": "3b503bb3-2ef6-4f66-89dc-fc7b28b5ccdd",
       "key": "client_secret",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "4f9f081f-0577-416c-85f8-079bc7d0bb75",
+      "id": "daaf1215-f9d7-4904-9ea6-faac47b35706",
       "key": "token_url",
       "value": ""
     }
