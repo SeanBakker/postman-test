@@ -262,6 +262,37 @@
             "url": "{{URL_editor}}/venue"
           },
           "response": []
+        },
+        {
+          "name": "Server Health Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2b598bfd-26bf-467b-a24a-c7428f57a089",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "63ad4ae1-a462-4adc-8638-da97de0f5c82",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/health"
+          },
+          "response": []
         }
       ],
       "id": "d31ceb91-14ba-4167-afb5-f6093f76bb14"
@@ -297,37 +328,37 @@
   ],
   "variable": [
     {
-      "id": "626b4251-11ef-411a-9201-2473b73dd2c0",
+      "id": "b3885fc1-08cf-4fe1-b6f2-7f1d219a6236",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "c56a65b2-5a6c-4f20-9fd9-ff886ec83102",
+      "id": "8456ea3f-ec58-496b-a964-e52e5af09091",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "43dcb0d3-ee66-40a5-b26a-20d4bc8194ee",
+      "id": "f44a1687-af94-4f50-906a-d53b1236db3a",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "5b43a145-caed-4de0-9b02-9c8b5ef988ec",
+      "id": "98b400bb-2d21-4c95-b2c7-c313e45deb7b",
       "key": "token",
       "value": "(generated at runtime)"
     },
     {
-      "id": "6d398011-8309-4191-8d94-fd2277312106",
+      "id": "0c6d45d5-159f-4cbe-8eb9-eec2d501d6e9",
       "key": "client_id",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "c7d71925-1843-4d39-a7b3-1f859c9613a0",
+      "id": "3a8a5fc8-4b21-4f72-bb2f-f80dc69ce8fc",
       "key": "client_secret",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "b87a5b18-cfd6-4ee1-84ad-35c7bc916ab0",
+      "id": "87185c58-edc5-4a1d-8f73-cb404913069b",
       "key": "token_url",
       "value": ""
     }
