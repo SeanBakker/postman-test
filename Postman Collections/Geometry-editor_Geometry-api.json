@@ -177,37 +177,6 @@
           "response": []
         },
         {
-          "name": "Server Health 2",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "2b598bfd-26bf-467b-a24a-c7428f57a089",
-                "exec": [
-                  "pm.test('Status', () => {\r",
-                  "    pm.response.to.be.success;\r",
-                  "    pm.response.to.be.withBody;\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "63ad4ae1-a462-4adc-8638-da97de0f5c82",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [],
-            "url": "{{URL_editor}}/health"
-          },
-          "response": []
-        },
-        {
           "name": "Environment",
           "event": [
             {
@@ -328,37 +297,37 @@
   ],
   "variable": [
     {
-      "id": "57adc057-0fca-42d7-8338-4b63ac55fdce",
+      "id": "b11665f5-1439-43ff-b116-445f5c306526",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "d5f2d3fd-08e3-4721-839d-ffd58641880e",
+      "id": "b107bb7c-a466-4c57-916d-4d32e33ff1b0",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "a481f706-145b-4218-8239-9f3c6a4e9e6e",
+      "id": "c5db3e7c-35ec-4099-9718-1867601d7051",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "a527e25d-4aae-48db-b864-f65f8916ad40",
+      "id": "16721e6b-e3e2-4d60-8de0-db8409f5f906",
       "key": "token",
       "value": "(generated at runtime)"
     },
     {
-      "id": "70b1c05f-7ce5-48b7-80b3-76efe04a042c",
+      "id": "48e4f775-c531-4b15-bfbe-7bca9392c477",
       "key": "client_id",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "3b503bb3-2ef6-4f66-89dc-fc7b28b5ccdd",
+      "id": "1d5fc9e6-5e56-4cc3-8c25-5e90a017295b",
       "key": "client_secret",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "daaf1215-f9d7-4904-9ea6-faac47b35706",
+      "id": "d6b42b64-4417-4f28-9adb-1d976ff786dc",
       "key": "token_url",
       "value": ""
     }
