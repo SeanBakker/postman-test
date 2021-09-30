@@ -177,6 +177,37 @@
           "response": []
         },
         {
+          "name": "Server Health Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2b598bfd-26bf-467b-a24a-c7428f57a089",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "63ad4ae1-a462-4adc-8638-da97de0f5c82",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/health"
+          },
+          "response": []
+        },
+        {
           "name": "Environment",
           "event": [
             {
@@ -262,37 +293,6 @@
             "url": "{{URL_editor}}/venue"
           },
           "response": []
-        },
-        {
-          "name": "Server Health Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "2b598bfd-26bf-467b-a24a-c7428f57a089",
-                "exec": [
-                  "pm.test('Status', () => {\r",
-                  "    pm.response.to.be.success;\r",
-                  "    pm.response.to.be.withBody;\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "63ad4ae1-a462-4adc-8638-da97de0f5c82",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [],
-            "url": "{{URL_editor}}/health"
-          },
-          "response": []
         }
       ],
       "id": "d31ceb91-14ba-4167-afb5-f6093f76bb14"
@@ -328,37 +328,37 @@
   ],
   "variable": [
     {
-      "id": "b3885fc1-08cf-4fe1-b6f2-7f1d219a6236",
+      "id": "7a6ba86e-911c-447a-a2d6-b9a2150c7c06",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "8456ea3f-ec58-496b-a964-e52e5af09091",
+      "id": "5b245f8c-a755-4fa4-a2fb-6308c2072e1f",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "f44a1687-af94-4f50-906a-d53b1236db3a",
+      "id": "1aa33d90-0427-46a4-9190-8ea0391be061",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "98b400bb-2d21-4c95-b2c7-c313e45deb7b",
+      "id": "09af3128-6a16-422a-8459-72867b81c22a",
       "key": "token",
       "value": "(generated at runtime)"
     },
     {
-      "id": "0c6d45d5-159f-4cbe-8eb9-eec2d501d6e9",
+      "id": "bb6b1dfa-e75f-4dbf-9b0a-1348ff92ebab",
       "key": "client_id",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "3a8a5fc8-4b21-4f72-bb2f-f80dc69ce8fc",
+      "id": "4dcfc5bf-c777-4e33-aae7-002402870a87",
       "key": "client_secret",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "87185c58-edc5-4a1d-8f73-cb404913069b",
+      "id": "4f9f081f-0577-416c-85f8-079bc7d0bb75",
       "key": "token_url",
       "value": ""
     }
