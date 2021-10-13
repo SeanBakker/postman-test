@@ -306,7 +306,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "d6850742-40e5-4dd6-b883-46c40044c475",
+        "id": "8ce22d01-25c9-47a8-b8af-80ca8fea5ff4",
         "type": "text/javascript",
         "exec": [
           ""
@@ -316,7 +316,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "1b9e437d-dcce-4034-b4ce-ff7686121b63",
+        "id": "fbce1b5a-ad2f-4f09-8d56-50e17f736733",
         "type": "text/javascript",
         "exec": [
           ""
@@ -326,37 +326,37 @@
   ],
   "variable": [
     {
-      "id": "fb19309b-4862-4d78-85b9-aa8583cbe24c",
+      "id": "2145fcba-ca5f-48cc-b594-31d10ef9563a",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "2ae56406-b888-4ee0-bb8f-ebe712482678",
+      "id": "dcdf5600-e8a7-43ef-b94a-5df430de0f89",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "8ea3e929-a48f-4a1d-b736-d3a5f858a8ab",
+      "id": "8f7925b6-0bff-49f2-a393-4acdcbe2f303",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "cc96a0c3-1c7e-459e-bbac-5e2e14a8b843",
+      "id": "f0a18915-d34b-42de-ac78-ac35ab646ac8",
       "key": "token",
       "value": "(generated at runtime)"
     },
     {
-      "id": "ea8e582a-ec65-4ed5-8e74-7b2df10b77a6",
+      "id": "f731ed23-101f-4eaa-a2fd-c32c01cfde06",
       "key": "client_id",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "593846bd-59a4-43e9-b4b2-a9a420c019c0",
+      "id": "602da6a0-5d4d-4d7f-857d-ef4111f6b32b",
       "key": "client_secret",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "36e392b1-50f6-44cd-9fbf-ee876690cc39",
+      "id": "50b551b9-f707-4315-9420-1ac36075c883",
       "key": "token_url",
       "value": "https://staging.eu.mappedin.com"
     }
