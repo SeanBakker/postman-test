@@ -1,0 +1,387 @@
+{
+  "info": {
+    "_postman_id": "634e62cf-c090-4379-89c1-d1966a494ede",
+    "name": "Search Status Check",
+    "description": "Search collection - Change the 'Venue Slug' variable to the intended venue, then run to sync and search that venue.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Server Health",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "c46ee8d3-4f75-4d92-8722-17d067a0042f",
+            "exec": [
+              "pm.test(\"Status\", function() {\r",
+              "    pm.response.to.be.success\r",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "77dc2db5-b045-4ecc-a675-acd59cbb27b1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true
+        }
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "User-Agent",
+            "value": "{{User-Agent}}",
+            "type": "text"
+          }
+        ],
+        "url": "https://search-staging.mappedin.com/health"
+      },
+      "response": []
+    },
+    {
+      "name": "Suggest",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "7817e1f3-4789-47ee-9090-1ece6393b17d",
+            "exec": [
+              "// sets the value of Search Total\r",
+              "// sets the value of Search Hits\r",
+              "// sets the value of Search Last Page\r",
+              "// sets the value of Search Last Page Total\r",
+              "\r",
+              "pm.test(\"Status\", function() {\r",
+              "    pm.response.to.be.success;\r",
+              "});\r",
+              "\r",
+              "const responseJSON = pm.response.json();\r",
+              "pm.collectionVariables.set(\"Search Total\", responseJSON.total);\r",
+              "pm.collectionVariables.set(\"Search Last PN\", Math.ceil(responseJSON.total / 10));\r",
+              "pm.collectionVariables.set(\"Search Last PN Total\", responseJSON.total % 10 == 0 ? 10 : responseJSON.total % 10);\r",
+              "\r",
+              "pm.test(\"Types\", function() {\r",
+              "    // assume search query is reasonable and begets results\r",
+              "    pm.expect(pm.collectionVariables.get(\"Search Total\")).to.be.not.equal(0);\r",
+              "    pm.expect(responseJSON.hits).to.be.an(\"array\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Page Size Defaults to 10\", function() {\r",
+              "    if (responseJSON.total >= 10) {\r",
+              "        pm.expect(responseJSON.hits.length).to.equal(10);\r",
+              "    } else {\r",
+              "        pm.expect(responseJSON.total).to.eql(responseJSON.hits.length);\r",
+              "    }\r",
+              "});\r",
+              "\r",
+              "const locationNames = [];\r",
+              "responseJSON.hits.forEach(hit => locationNames.push(hit.name));\r",
+              "pm.collectionVariables.set(\"Search Hits\", locationNames);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "6f38f632-e4d8-4893-93a0-465d52d0f18d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "password": "",
+            "username": ""
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://search-staging.mappedin.com/{{Venue Slug}}/suggest?q=a",
+          "protocol": "https",
+          "host": [
+            "search-staging",
+            "mappedin",
+            "com"
+          ],
+          "path": [
+            "{{Venue Slug}}",
+            "suggest"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "a"
+            }
+          ]
+        },
+        "description": "This request will return hits of a search on the specified venue after the sync. If any results are returned then the venue sync worked properly."
+      },
+      "response": []
+    },
+    {
+      "name": "Search",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "2e05afcd-e817-488a-b5ab-9bb8fca19408",
+            "exec": [
+              "// sets the value of Search Total\r",
+              "// sets the value of Search Hits\r",
+              "// sets the value of Search Last Page\r",
+              "// sets the value of Search Last Page Total\r",
+              "\r",
+              "pm.test(\"Status\", function() {\r",
+              "    pm.response.to.be.success;\r",
+              "});\r",
+              "\r",
+              "const responseJSON = pm.response.json();\r",
+              "pm.collectionVariables.set(\"Search Total\", responseJSON.total);\r",
+              "pm.collectionVariables.set(\"Search Last PN\", Math.ceil(responseJSON.total / 10));\r",
+              "pm.collectionVariables.set(\"Search Last PN Total\", responseJSON.total % 10 == 0 ? 10 : responseJSON.total % 10);\r",
+              "\r",
+              "pm.test(\"Types\", function() {\r",
+              "    // assume search query is reasonable and begets results\r",
+              "    pm.expect(pm.collectionVariables.get(\"Search Total\")).to.be.not.equal(0);\r",
+              "    pm.expect(responseJSON.hits).to.be.an(\"array\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Page Size Defaults to 10\", function() {\r",
+              "    if (responseJSON.total >= 10) {\r",
+              "        pm.expect(responseJSON.hits.length).to.equal(10);\r",
+              "    } else {\r",
+              "        pm.expect(responseJSON.total).to.eql(responseJSON.hits.length);\r",
+              "    }\r",
+              "});\r",
+              "\r",
+              "const locationNames = [];\r",
+              "responseJSON.hits.forEach(hit => locationNames.push(hit.name));\r",
+              "pm.collectionVariables.set(\"Search Hits\", locationNames);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "c43077fb-bc29-4ee2-a8e6-f6fe32daeaa4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "password": "",
+            "username": ""
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://search-staging.mappedin.com/{{Venue Slug}}/search?q=a",
+          "protocol": "https",
+          "host": [
+            "search-staging",
+            "mappedin",
+            "com"
+          ],
+          "path": [
+            "{{Venue Slug}}",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "a"
+            }
+          ]
+        },
+        "description": "This request will return hits of a search on the specified venue after the sync. If any results are returned then the venue sync worked properly."
+      },
+      "response": []
+    },
+    {
+      "name": "Mobile Search",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "9abd6737-6890-4125-8ab5-27384a7b9cb6",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "7a436ced-a75c-42a8-a33c-f9a5b9dbb13c",
+            "exec": [
+              "// sets the value of Mobile Total\r",
+              "// sets the value of Mobile Last Page\r",
+              "// sets the value of Mobile Last Page Total\r",
+              "\r",
+              "pm.test(\"Status\", function() {\r",
+              "    pm.response.to.be.success;\r",
+              "});\r",
+              "\r",
+              "const responseJSON = pm.response.json();\r",
+              "pm.collectionVariables.set(\"Mobile Total\", responseJSON.total);\r",
+              "pm.collectionVariables.set(\"Mobile Last PN\", Math.ceil(responseJSON.total / 10));\r",
+              "pm.collectionVariables.set(\"Mobile Last PN Total\", responseJSON.total % 10 == 0 ? 10 : responseJSON.total % 10);\r",
+              "\r",
+              "pm.test(\"Types\", function() {\r",
+              "    // assume mobile query is reasonable and begets results\r",
+              "    pm.expect(pm.collectionVariables.get(\"Mobile Total\")).to.be.not.equal(0);\r",
+              "    pm.expect(responseJSON.hits).to.be.an(\"array\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Page Size Defaults to 10\", function() {\r",
+              "    if (responseJSON.total >= 10) {\r",
+              "        pm.expect(responseJSON.hits.length).to.equal(10);\r",
+              "    } else {\r",
+              "        pm.expect(responseJSON.total).to.eql(responseJSON.hits.length);\r",
+              "    }\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "31750576-3712-454a-adb3-bcd06d624d82",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true
+        }
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "password": "",
+            "username": ""
+          }
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "User-Agent",
+            "value": "{{User-Agent}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://search-staging.mappedin.com/{{Venue Slug}}/mobile/search?q=a",
+          "protocol": "https",
+          "host": [
+            "search-staging",
+            "mappedin",
+            "com"
+          ],
+          "path": [
+            "{{Venue Slug}}",
+            "mobile",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "a"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sync",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "1397a709-8220-4102-a7d2-96e419d45059",
+            "exec": [
+              "pm.test(\"Status\", function() {\r",
+              "    pm.response.to.be.success;\r",
+              "});\r",
+              "\r",
+              "/* MANUAL TESTING REQUIRED\r",
+              "(1) go to CMS and create a new location\r",
+              "(2) run a Search request in Postman, searching for your newly created location\r",
+              "    - you should NOT see your new location in the results\r",
+              "(3) run the Sync request\r",
+              "(4) run a Search request in Postman, searching for your newly created location\r",
+              "    - now, you should see your new location in the results\r",
+              "*/"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "5d9a36f9-a6d0-44ae-a37f-5955ac5572a2",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "password": "",
+            "username": ""
+          }
+        },
+        "method": "POST",
+        "header": [],
+        "url": "https://search-staging.mappedin.com/{{Venue Slug}}/sync",
+        "description": "This request will sync the data for searching. You will need the correct credentials to send this request. Ask Peter for credentials."
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": {
+      "password": "",
+      "username": ""
+    }
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "12bf8776-b80b-4bc0-87d7-4f18ced77c1e",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "45f1e769-aa27-4e46-8ee0-eb9c768cf801",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "1222a6f0-e7e1-4fdf-81b8-607218196e27",
+      "key": "Venue Slug",
+      "value": "(write in \"current value\")",
+      "type": "string"
+    }
+  ]
+}
