@@ -1,0 +1,371 @@
+{
+  "info": {
+    "_postman_id": "c9a9e2fa-47e1-49f0-9680-541d327e238a",
+    "name": "Geometry-Editor / Geometry-API",
+    "description": "Testing collection for Geometry-editor and Geometry-api services (health checks)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Geometry-API",
+      "item": [
+        {
+          "name": "Server Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fd554bb5-f653-4841-8f48-de533cc6eb1d",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "fcf7ad78-545c-459e-b6a5-680293163729",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_api}}/health"
+          },
+          "response": []
+        },
+        {
+          "name": "Token Creation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "73a2bf08-5dfb-4151-b161-b8e2f171d413",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const responseJSON = pm.response.json();\r",
+                  "\r",
+                  "pm.test('Response', () => {\r",
+                  "    pm.expect(responseJSON.access_token).to.be.a('string');\r",
+                  "    pm.expect(responseJSON.scope).to.be.a('string');\r",
+                  "    pm.expect(responseJSON.expires_in).to.be.a('number');\r",
+                  "    pm.expect(responseJSON.token_type).to.be.a('string');\r",
+                  "});\r",
+                  "\r",
+                  "pm.collectionVariables.set(\"token\", responseJSON.access_token);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f632b88d-e332-4861-92c5-26cc6961976a",
+                "exec": [
+                  "const stagingEndpoints = {\r",
+                  "    eu: 'https://staging.eu.mappedin.com',\r",
+                  "    na: 'https://staging.mappedin.com',\r",
+                  "};\r",
+                  "\r",
+                  "const region = pm.collectionVariables.get('region');\r",
+                  "pm.collectionVariables.set('token_url', stagingEndpoints[region]);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "cce55ed5-a65d-4943-a38a-8f198a14657b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"client_id\": \"{{client_id}}\",\r\n    \"client_secret\": \"{{client_secret}}\",\r\n    \"audience\": \"https://staging.eu.mappedin.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL_api}}/1/token"
+          },
+          "response": []
+        },
+        {
+          "name": "Server Organization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ebcb8f07-b389-4f12-9537-f86671288441",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8bac9816-5a64-4179-8c7f-5cd0678b0fd7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_api}}/organization"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "11de8f34-11e8-4d65-8f73-128b96b867ef"
+    },
+    {
+      "name": "Geometry-Editor",
+      "item": [
+        {
+          "name": "Server Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3ef7bb55-974f-48da-a611-4e75cc010ed3",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8b3c6729-a0a1-430b-af1c-99519228c4b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/health"
+          },
+          "response": []
+        },
+        {
+          "name": "Environment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e4ac2933-8aa0-49e8-a2ea-6bd00726f218",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "c32fc489-c593-4729-9255-003f225311f3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/environment"
+          },
+          "response": []
+        },
+        {
+          "name": "Static",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b7ac2178-f747-44b5-9d82-4269cb2d35e5",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f0113ea2-a3de-4ead-9b85-3059f0e338cf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/static"
+          },
+          "response": []
+        },
+        {
+          "name": "Venue",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d478e6d0-ddcd-432d-b2f5-2e13d49c9464",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8ded6235-db52-41d5-9744-e0b953afd43f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/venue"
+          },
+          "response": []
+        },
+        {
+          "name": "API",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fae0dab7-7b8e-4785-9de9-db54940442bb",
+                "exec": [
+                  "pm.test('Status', () => {\r",
+                  "    pm.response.to.be.success;\r",
+                  "    pm.response.to.be.withBody;\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d49f43db-6166-4d55-a651-5124ac5755b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL_editor}}/api/me"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "d31ceb91-14ba-4167-afb5-f6093f76bb14"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": {
+      "token": "{{token}}"
+    }
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "ec268fca-cb6e-43d7-a175-a0efbb72ddb9",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "548a15b3-6179-44b3-b298-0be5e147d46d",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "e54f1515-3dfd-4168-81fe-adf7c0a3296d",
+      "key": "URL_editor",
+      "value": "https://localhost:8080",
+      "type": "string"
+    },
+    {
+      "id": "334266b2-4093-4181-840e-427aa34d5af9",
+      "key": "region",
+      "value": "na",
+      "type": "string"
+    },
+    {
+      "id": "c58a94be-a6d4-4051-b825-16f06e438644",
+      "key": "URL_api",
+      "value": "https://localhost:8000",
+      "type": "string"
+    },
+    {
+      "id": "278968dc-487c-45db-a2c7-b2a094e10648",
+      "key": "token",
+      "value": "(generated at runtime)",
+      "type": "string"
+    },
+    {
+      "id": "1e66d77c-ba69-42e1-b917-3cd61e6bb390",
+      "key": "client_id",
+      "value": "(write in 'current' value)",
+      "type": "string"
+    },
+    {
+      "id": "41f06f13-58ef-40f2-be40-40c3740ba91c",
+      "key": "client_secret",
+      "value": "(write in 'current' value)",
+      "type": "string"
+    },
+    {
+      "id": "497d575a-e895-4b8d-a7ad-48fecff14e3b",
+      "key": "token_url",
+      "value": "https://staging.eu.mappedin.com",
+      "type": "string"
+    }
+  ]
+}
