@@ -1,0 +1,374 @@
+{
+  "info": {
+    "_postman_id": "74d5d98c-8f52-4a57-8fac-53bf0d2d0968",
+    "name": "Export",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "PREREQS",
+      "item": [
+        {
+          "name": "Set URL",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "7c14d9ca-7450-4ac2-9cd6-3aa31fb1ba74",
+                "exec": [
+                  "const stagingEndpoints = {\r",
+                  "    // can also use API Gateway endpoints, althought the authorization will through Headers\r",
+                  "    eu: 'https://mappedin-export-service-staging.eu.mappedin.com',\r",
+                  "    na: 'https://mappedin-export-service-staging.mappedin.com',\r",
+                  "};\r",
+                  "\r",
+                  "const productionVenues = {\r",
+                  "    eu: 'test-test',\r",
+                  "    na: null,\r",
+                  "};\r",
+                  "\r",
+                  "const stagingVenues = {\r",
+                  "    eu: 'paul-757-stone-road-east',\r",
+                  "    na: 'testers_paradise',\r",
+                  "};\r",
+                  "\r",
+                  "const region = pm.collectionVariables.get('region');\r",
+                  "const isProduction = pm.collectionVariables.get('is_production');\r",
+                  "\r",
+                  "if (stagingEndpoints[region] === undefined) {\r",
+                  "    pm.collectionVariables.set('URL', 'region was not well-defined');\r",
+                  "    return;\r",
+                  "}\r",
+                  "\r",
+                  "if (isProduction !== 'true' && isProduction !== 'false') {\r",
+                  "    pm.collectionVariables.set('URL', 'is_production was not well-defined');\r",
+                  "    return;\r",
+                  "}\r",
+                  "\r",
+                  "if (isProduction === 'true') {\r",
+                  "    pm.collectionVariables.set('URL', stagingEndpoints[region].replace('-staging', ''));\r",
+                  "    pm.collectionVariables.set('Venue', productionVenues[region]);\r",
+                  "} else if (isProduction === 'false') {\r",
+                  "    pm.collectionVariables.set('URL', stagingEndpoints[region]);\r",
+                  "    pm.collectionVariables.set('Venue', stagingVenues[region]);\r",
+                  "}\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "93929e7e-7860-4488-864a-0e6bb8ff4492",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "14f5c8e6-db06-4311-be21-163f357c9d4b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "google.com"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "d0876e27-199f-4ac8-8e2f-d45cdf2009c8"
+    },
+    {
+      "name": "Health",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "491e63dd-35bc-4673-91bd-11cce50a3729",
+            "exec": [
+              "pm.test('Status', () => {\r",
+              "    pm.response.to.be.success;\r",
+              "    pm.response.to.be.withBody;\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "90a5a4cd-61f2-4a16-9475-0912280e6e2b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{URL}}/health"
+      },
+      "response": []
+    },
+    {
+      "name": "MVF Export",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "4ffba413-6f8c-4444-a9f0-deee5cb321c1",
+            "exec": [
+              "pm.test('Status', () => {",
+              "    pm.response.to.be.success;",
+              "    pm.response.to.be.withBody;",
+              "    pm.response.to.be.json;",
+              "});",
+              "",
+              "const responseJSON = pm.response.json();",
+              "pm.collectionVariables.set('Updated At', responseJSON.updated_at);",
+              "",
+              "pm.test('Types', () => {",
+              "    pm.expect(responseJSON.url).to.be.a('string');",
+              "    pm.expect(responseJSON.updated_at).to.be.a('string');",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "37aa685f-08d3-46b6-8ad9-759be6130684",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}/exports/mvf/1/bundle?venue={{Venue}}&version=1.0.0",
+          "host": [
+            "{{URL}}"
+          ],
+          "path": [
+            "exports",
+            "mvf",
+            "1",
+            "bundle"
+          ],
+          "query": [
+            {
+              "key": "venue",
+              "value": "{{Venue}}"
+            },
+            {
+              "key": "version",
+              "value": "1.0.0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SMVF Export",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "a920bb06-1244-4313-ac44-46f62a218ce9",
+            "exec": [
+              "pm.test('Status', () => {",
+              "    pm.response.to.be.success;",
+              "    pm.response.to.be.withBody;",
+              "    pm.response.to.be.json;",
+              "});",
+              "",
+              "const responseJSON = pm.response.json();",
+              "",
+              "pm.test('Types', () => {",
+              "    pm.expect(responseJSON.url).to.be.a('string');",
+              "    pm.expect(responseJSON.updated_at).to.be.a('string');",
+              "});",
+              "",
+              "pm.expect('All exports should be updated simultaneously', () => {",
+              "    pm.expect(responseJSON.updated_at).to.eql(pm.collectionVariables.get('Updated At'));",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "45d7861d-bd91-41cb-ada1-85bbdfcbc8aa",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}/exports/smvf/1/bundle?venue={{Venue}}&version=1.0.0",
+          "host": [
+            "{{URL}}"
+          ],
+          "path": [
+            "exports",
+            "smvf",
+            "1",
+            "bundle"
+          ],
+          "query": [
+            {
+              "key": "venue",
+              "value": "{{Venue}}"
+            },
+            {
+              "key": "version",
+              "value": "1.0.0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Legacy Export",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "7e5326bb-6d68-488d-9e29-ee9fe8354d54",
+            "exec": [
+              "pm.test('Status', () => {",
+              "    pm.response.to.be.success;",
+              "    pm.response.to.be.withBody;",
+              "    pm.response.to.be.json;",
+              "});",
+              "",
+              "const responseJSON = pm.response.json();",
+              "",
+              "pm.test('Types', () => {",
+              "    pm.expect(responseJSON.url).to.be.a('string');",
+              "    pm.expect(responseJSON.updated_at).to.be.a('string');",
+              "});",
+              "",
+              "pm.expect('All exports should be updated simultaneously', () => {",
+              "    pm.expect(responseJSON.updated_at).to.eql(pm.collectionVariables.get('Updated At'));",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "d731a1d2-ade5-4fa2-941a-50f2a6f79d4c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}/exports/legacy/1/bundle?venue={{Venue}}&version=1.0.0",
+          "host": [
+            "{{URL}}"
+          ],
+          "path": [
+            "exports",
+            "legacy",
+            "1",
+            "bundle"
+          ],
+          "query": [
+            {
+              "key": "venue",
+              "value": "{{Venue}}"
+            },
+            {
+              "key": "version",
+              "value": "1.0.0"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": {
+      "password": "{{password}}",
+      "username": "{{username}}"
+    }
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "91f945a1-8ab2-42b2-a222-d31b3cb45919",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "495cb6cb-179c-40e0-927e-2f8ba79d7785",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "4dd0d030-7f7a-46ac-ba06-7da03beea4dd",
+      "key": "is_production",
+      "value": "false",
+      "type": "string"
+    },
+    {
+      "id": "e63c4ae7-4036-49b4-86da-54685fdbdb99",
+      "key": "region",
+      "value": "na",
+      "type": "string"
+    },
+    {
+      "id": "a81a3b35-6d08-4909-a10e-795f73082c7a",
+      "key": "username",
+      "value": "(write in \"current value\")",
+      "type": "string"
+    },
+    {
+      "id": "ebeac1a5-8c99-451c-b24b-54ee9fd50aee",
+      "key": "password",
+      "value": "(write in \"current value\")",
+      "type": "string"
+    },
+    {
+      "id": "a61f6f83-221e-42a9-8a3b-9f320a463c66",
+      "key": "URL",
+      "value": "(determined at runtime)",
+      "type": "string"
+    },
+    {
+      "id": "4ee2f2c8-c358-486f-8e32-be533e3e7bdc",
+      "key": "Venue",
+      "value": "(determined at runtime)",
+      "type": "string"
+    },
+    {
+      "id": "14b0c355-8cd2-4c7f-82aa-7811936d58d0",
+      "key": "Updated At",
+      "value": "(determined at runtime)",
+      "type": "string"
+    }
+  ]
+}
