@@ -36,37 +36,37 @@
   ],
   "variable": [
     {
-      "id": "d525921d-ff47-4c5e-be74-94f086fe4ea5",
+      "id": "f6888b06-bf07-4cf5-a14b-9324d1d90460",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "3d4e3107-b118-40ae-9a26-5dd4a2336771",
+      "id": "d33c96ef-2d13-44de-8d55-eedb9e6c2ec8",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "65429b10-1888-493b-8179-5eecb7e232e7",
+      "id": "933cbeae-883b-4cea-9d87-062ebaa96e37",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "8f82229e-5cd9-4298-82f1-8b92d70192b1",
+      "id": "53f5b6f6-8674-4646-b2df-8eba1a42c947",
       "key": "token",
       "value": "(generated at runtime)"
     },
     {
-      "id": "92dc54ce-5e16-4b5b-b51a-3f25c6d85192",
+      "id": "85563753-e63a-48ed-bc2e-21bc32ff7340",
       "key": "client_id",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "d82a3628-2af1-4083-ba52-3af4f62301b3",
+      "id": "6d2b88a0-d656-413d-bf83-c74269a97eb3",
       "key": "client_secret",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "7d49257f-a838-4b24-8885-4d0aede02356",
+      "id": "d0ff4bf6-ca0e-4428-8765-6a0f3cadde47",
       "key": "token_url",
       "value": "https://staging.eu.mappedin.com"
     }
