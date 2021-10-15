@@ -7,142 +7,6 @@
   },
   "item": [
     {
-      "name": "Geometry-API",
-      "item": [
-        {
-          "name": "Server Health",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "fd554bb5-f653-4841-8f48-de533cc6eb1d",
-                "exec": [
-                  "pm.test('Status', () => {\r",
-                  "    pm.response.to.be.success;\r",
-                  "    pm.response.to.be.withBody;\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "fcf7ad78-545c-459e-b6a5-680293163729",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [],
-            "url": "{{URL_api}}/health"
-          },
-          "response": []
-        },
-        {
-          "name": "Token Creation",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "73a2bf08-5dfb-4151-b161-b8e2f171d413",
-                "exec": [
-                  "pm.test('Status', () => {\r",
-                  "    pm.response.to.be.success;\r",
-                  "    pm.response.to.be.withBody;\r",
-                  "    pm.response.to.be.json;\r",
-                  "});\r",
-                  "\r",
-                  "const responseJSON = pm.response.json();\r",
-                  "\r",
-                  "pm.test('Response', () => {\r",
-                  "    pm.expect(responseJSON.access_token).to.be.a('string');\r",
-                  "    pm.expect(responseJSON.scope).to.be.a('string');\r",
-                  "    pm.expect(responseJSON.expires_in).to.be.a('number');\r",
-                  "    pm.expect(responseJSON.token_type).to.be.a('string');\r",
-                  "});\r",
-                  "\r",
-                  "pm.collectionVariables.set(\"token\", responseJSON.access_token);"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "f632b88d-e332-4861-92c5-26cc6961976a",
-                "exec": [
-                  "const stagingEndpoints = {\r",
-                  "    eu: 'https://staging.eu.mappedin.com',\r",
-                  "    na: 'https://staging.mappedin.com',\r",
-                  "};\r",
-                  "\r",
-                  "const region = pm.collectionVariables.get('region');\r",
-                  "pm.collectionVariables.set('token_url', stagingEndpoints[region]);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "cce55ed5-a65d-4943-a38a-8f198a14657b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"client_id\": \"{{client_id}}\",\r\n    \"client_secret\": \"{{client_secret}}\",\r\n    \"audience\": \"https://staging.eu.mappedin.com\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL_api}}/1/token"
-          },
-          "response": []
-        },
-        {
-          "name": "Server Organization",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "ebcb8f07-b389-4f12-9537-f86671288441",
-                "exec": [
-                  "pm.test('Status', () => {\r",
-                  "    pm.response.to.be.success;\r",
-                  "    pm.response.to.be.withBody;\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "8bac9816-5a64-4179-8c7f-5cd0678b0fd7",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [],
-            "url": "{{URL_api}}/organization"
-          },
-          "response": []
-        }
-      ],
-      "id": "11de8f34-11e8-4d65-8f73-128b96b867ef"
-    },
-    {
       "name": "Geometry-Editor",
       "item": [
         {
@@ -326,37 +190,37 @@
   ],
   "variable": [
     {
-      "id": "2145fcba-ca5f-48cc-b594-31d10ef9563a",
+      "id": "d9ff8bed-5bd1-4193-9d49-09ad171078a3",
       "key": "URL_editor",
       "value": "https://localhost:8080"
     },
     {
-      "id": "dcdf5600-e8a7-43ef-b94a-5df430de0f89",
+      "id": "6a2006cf-f5c1-40c6-8e18-afd7711dd9d3",
       "key": "region",
       "value": "na"
     },
     {
-      "id": "8f7925b6-0bff-49f2-a393-4acdcbe2f303",
+      "id": "6f9f308b-39fe-426b-a911-8ad05cbb71a4",
       "key": "URL_api",
       "value": "https://localhost:8000"
     },
     {
-      "id": "f0a18915-d34b-42de-ac78-ac35ab646ac8",
+      "id": "a0fe7b0b-48a7-4556-b2bb-1b85cfb97f84",
       "key": "token",
       "value": "(generated at runtime)"
     },
     {
-      "id": "f731ed23-101f-4eaa-a2fd-c32c01cfde06",
+      "id": "3d03f50a-5ef8-4f65-a39e-21c2d3117cd5",
       "key": "client_id",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "602da6a0-5d4d-4d7f-857d-ef4111f6b32b",
+      "id": "eb983984-0d48-4467-8218-c043d2d64011",
       "key": "client_secret",
       "value": "(write in 'current' value)"
     },
     {
-      "id": "50b551b9-f707-4315-9420-1ac36075c883",
+      "id": "12241edf-1a83-4458-ae87-1fe0c6ad067f",
       "key": "token_url",
       "value": "https://staging.eu.mappedin.com"
     }
